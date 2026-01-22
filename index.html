@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Mensagens – Inova</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Container principal -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-container">
+                <img id="logoImg" class="logo" src="logo.png" alt="Logo Inova">
+            </div>
+            <div class="header-content">
+                <h1>Gerador de Mensagens</h1>
+                <p class="subtitle">Inova - Mensagens Profissionais Automáticas</p>
+            </div>
+            <div class="header-badge">
+                <span class="badge">v1.0</span>
+            </div>
+        </header>
+
+        <!-- Conteúdo principal -->
+        <main class="main-content">
+            <!-- Seção 1: Logo e Configurações da Empresa e Atendente -->
+            <section class="section">
+                <h2 class="section-title">Logo e Configurações da Empresa</h2>
+                
+                <!-- Upload de Logo -->
+                <div class="form-group">
+                    <label for="logoUpload">Logo da Empresa (Inova)</label>
+                    <div class="logo-upload-container">
+                        <input 
+                            type="file" 
+                            id="logoUpload" 
+                            accept="image/*"
+                            class="logo-upload-input"
+                        >
+                        <label for="logoUpload" class="logo-upload-label">
+                            📸 Clique para fazer upload da logo
+                        </label>
+                        <button id="limparLogoBtn" class="btn-logo-clear">❌ Remover Logo</button>
+                    </div>
+                </div>
+                
+                <div class="form-grid">
+                    <!-- Nome da Empresa -->
+                    <div class="form-group">
+                        <label for="empresa">Nome da Empresa</label>
+                        <input 
+                            type="text" 
+                            id="empresa" 
+                            placeholder="Ex: Inova" 
+                            value="Inova"
+                        >
+                    </div>
+
+                    <!-- URL da Logo (alternativa) -->
+                    <div class="form-group">
+                        <label for="logoUrl">URL da Logo (alternativa)</label>
+                        <input 
+                            type="text" 
+                            id="logoUrl" 
+                            placeholder="Ex: https://exemplo.com/logo.png"
+                        >
+                    </div>
+
+                    <!-- Nome do Atendente -->
+                    <div class="form-group">
+                        <label for="atendente">Nome do Atendente</label>
+                        <input 
+                            type="text" 
+                            id="atendente" 
+                            placeholder="Ex: João Silva"
+                        >
+                    </div>
+                </div>
+
+                <!-- Opções de Formalidade -->
+                <div class="form-group">
+                    <label>Nível de Formalidade</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="formalidade" value="formal" checked>
+                            <span>Formal</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="formalidade" value="semi">
+                            <span>Semi-formal</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="formalidade" value="informal">
+                            <span>Informal</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Emojis -->
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="emojis" checked>
+                        <span>Incluir emojis profissionais</span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- Seção 2: Tipo de Mensagem e Dados do Cliente -->
+            <section class="section">
+                <h2 class="section-title">Gerador de Mensagem</h2>
+
+                <!-- Tipo de Mensagem -->
+                <div class="form-group">
+                    <label for="tipoMensagem">Tipo de Mensagem</label>
+                    <select id="tipoMensagem">
+                        <option value="">-- Selecione um tipo --</option>
+                        <option value="atendimento">👋 Atendimento inicial</option>
+                        <option value="orcamento">📌 Orçamento</option>
+                        <option value="acompanhamento">🔍 Acompanhamento de serviço</option>
+                        <option value="concluido">✅ Serviço concluído</option>
+                        <option value="cobranca">💰 Cobrança educada</option>
+                        <option value="fora-horario">🌙 Resposta fora do horário</option>
+                    </select>
+                </div>
+
+                <!-- Dados do Cliente -->
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="cliente">Nome do Cliente *</label>
+                        <input 
+                            type="text" 
+                            id="cliente" 
+                            placeholder="Ex: Maria Santos"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="servico">Serviço *</label>
+                        <input 
+                            type="text" 
+                            id="servico" 
+                            placeholder="Ex: Consultoria de Marketing"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="valor">Valor (R$)</label>
+                        <input 
+                            type="text" 
+                            id="valor" 
+                            placeholder="Ex: 500,00"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prazo">Prazo (em dias)</label>
+                        <input 
+                            type="number" 
+                            id="prazo" 
+                            placeholder="Ex: 7" 
+                            min="1"
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção 3: Visualização da Mensagem -->
+            <section class="section">
+                <h2 class="section-title">Mensagem Gerada</h2>
+
+                <!-- Card da Mensagem -->
+                <div class="message-card">
+                    <div class="message-header">
+                        <span class="message-label">Mensagem Profissional</span>
+                        <span class="char-counter">
+                            <span id="charCount">0</span> caracteres
+                        </span>
+                    </div>
+                    <textarea 
+                        id="mensagem" 
+                        readonly 
+                        placeholder="A mensagem aparecerá aqui. Preencha os campos e selecione um tipo de mensagem."
+                    ></textarea>
+                </div>
+
+                <!-- Botões de Ação -->
+                <div class="button-group">
+                    <button id="copiarBtn" class="btn btn-primary">
+                        📋 Copiar para Área de Transferência
+                    </button>
+                    <button id="limparBtn" class="btn btn-secondary">
+                        🗑️ Limpar Campos
+                    </button>
+                </div>
+            </section>
+
+            <!-- Toast de Notificação -->
+            <div id="toast" class="toast"></div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Gerador de Mensagens Profissionais – Inova © 2026</p>
+            <p class="footer-note">Desenvolvido para melhorar a comunicação profissional</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
