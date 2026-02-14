@@ -291,3 +291,8 @@ Este é um sistema em v1.0. Futuras versões podem incluir:
 Abra `index.html` e comece a gerar mensagens profissionais em segundos.
 
 **Boa sorte! 🚀**
+
+
+link para acessar: https://theusms67.github.io/Gerador-de-Mensagens-Treinamentos-/**
+**
+
